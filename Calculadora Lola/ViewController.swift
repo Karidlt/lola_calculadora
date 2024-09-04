@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func que_hacer_puchar_boton(_ sender: Any) {
-        texto_a_cambiar.text = "Bienvenidos al Himalaya"
+    @IBAction func que_hacer_puchar_boton(_ sender: UIButton) {
+        texto_a_cambiar.text = sender.titleLabel!.text ?? "NOsupe"
+       // boton_para_interactuar.
     }
-    
 }
 
