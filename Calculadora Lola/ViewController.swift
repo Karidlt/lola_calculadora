@@ -36,14 +36,15 @@ class ViewController: UIViewController {
             
             // TODO: Arreglar glitch del text quitando el optional
             let text_a_añadir = botones_interfaz[(sender.restorationIdentifier ?? boton_operacion.restorationIdentifier) ?? "boton"]?.numero
+                        
             texto_a_cambiar.text = "\(texto_a_cambiar.text ?? "")\(text_a_añadir!)"
-        }
-        else if (estado_actual == estados_de_la_calculadora.escoger_operacion){
-            if let _mensajero: UIButton = sender{
-                operacion_actual = botones_interfaz[_mensajero!.restorationIdentifier?? "boton_0"]?.operacion
-            }
-            else{
-                operacion_actual = nil
+                    }
+            else if (estado_actual == estados_de_la_calculadora.escoger_operacion){
+            if let _mensajero: UIButton? = sender{
+                operacion_actual = botones_interfaz[_mensajero!.restorationIdentifier ?? "boton_0"]?.operacion
+                        }
+            else {
+            operacion_actual = nil
             }
              
         }
