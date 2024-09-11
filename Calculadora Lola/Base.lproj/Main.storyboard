@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1i-Xu-e5T">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="boton_cambia" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1i-Xu-e5T">
                                 <rect key="frame" x="159" y="361" width="75" height="47"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
@@ -137,6 +137,9 @@
                                                 <rect key="frame" x="0.0" y="196.00000000000006" width="43.666666666666664" height="34.333333333333343"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="op"/>
+                                                <connections>
+                                                    <action selector="boton_escoger_operacion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cAF-KY-Fm8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -167,6 +170,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="StackView" destination="qpw-gO-cM6" id="iHy-Jd-Dyd"/>
                         <outlet property="boton_operacion" destination="zIE-Tk-Ekh" id="r4K-1p-HNc"/>
                         <outlet property="texto_a_cambiar" destination="rDr-RC-nej" id="MjT-Il-pzH"/>
                     </connections>
@@ -186,7 +190,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
