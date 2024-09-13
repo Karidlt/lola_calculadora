@@ -58,10 +58,14 @@ struct IUBotonCalculadora {
         )
         botones_interfaz["boton_9"] = IUBotonCalculadora(
             numero: Character("9"),
-            operacion: ""
+            operacion: "/"
         )
         botones_interfaz["boton_0"] = IUBotonCalculadora(
             numero: Character("0"),
+            operacion: ""
+        )
+        botones_interfaz["boton_punto"] = IUBotonCalculadora(
+            numero: Character("."),
             operacion: ""
         )
         

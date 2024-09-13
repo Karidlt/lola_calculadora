@@ -32,8 +32,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="qpw-gO-cM6">
-                                <rect key="frame" x="69" y="477" width="282.66666666666663" height="230.33333333333326"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="qpw-gO-cM6">
+                                <rect key="frame" x="69" y="477" width="270.66666666666663" height="230.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="YeL-rP-pMz">
                                         <rect key="frame" x="0.0" y="0.0" width="43.666666666666664" height="230.33333333333334"/>
@@ -66,11 +66,14 @@
                                                 <rect key="frame" x="0.0" y="196.00000000000006" width="43.666666666666664" height="34.333333333333343"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="."/>
+                                                <connections>
+                                                    <action selector="que_hacer_puchar_boton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JKF-HH-Sdm"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="9Z9-rc-mOH">
-                                        <rect key="frame" x="79.666666666666657" y="0.0" width="43.666666666666657" height="230.33333333333334"/>
+                                        <rect key="frame" x="75.666666666666657" y="0.0" width="43.666666666666657" height="230.33333333333334"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="boton_2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el0-ld-QJf">
                                                 <rect key="frame" x="0.0" y="0.0" width="43.666666666666664" height="34.333333333333336"/>
@@ -107,7 +110,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="AFs-Q9-fLH">
-                                        <rect key="frame" x="159.33333333333331" y="0.0" width="43.666666666666657" height="230.33333333333334"/>
+                                        <rect key="frame" x="151.33333333333331" y="0.0" width="43.666666666666657" height="230.33333333333334"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="boton_3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgI-GE-syA">
                                                 <rect key="frame" x="0.0" y="0.0" width="43.666666666666664" height="34.333333333333336"/>
@@ -135,6 +138,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="boton_op" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-Tk-Ekh">
                                                 <rect key="frame" x="0.0" y="196.00000000000006" width="43.666666666666664" height="34.333333333333343"/>
+                                                <color key="tintColor" systemColor="systemTealColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="op"/>
                                                 <connections>
@@ -144,10 +148,13 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="boton_igual" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmQ-vY-fRa">
-                                        <rect key="frame" x="238.99999999999997" y="0.0" width="43.666666666666657" height="230.33333333333334"/>
+                                        <rect key="frame" x="226.99999999999997" y="0.0" width="43.666666666666657" height="230.33333333333334"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="="/>
+                                        <connections>
+                                            <action selector="obtener_resultado:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ibe-pw-Yfr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -190,7 +197,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     var botones_interfaz: Dictionary<String, IUBotonCalculadora> = [:]
     var operacion_actual: String? = nil
+    var numero_anterior: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,33 +36,52 @@ class ViewController: UIViewController {
     @IBAction func que_hacer_puchar_boton(_ sender: UIButton) {
         if(estado_actual == estados_de_la_calculadora.seleccionar_numeros){
             
-            // TODO: Arreglar glitch del text quitando el optional
-            let text_a_añadir = botones_interfaz[(sender.restorationIdentifier ?? boton_operacion.restorationIdentifier) ?? "boton"]?.numero
-            
-            texto_a_cambiar.text = "\(texto_a_cambiar.text ?? "")\(text_a_añadir!)"
+            if let _mensajero_id = sender.restorationIdentifier{
+                let texto_cache = botones_interfaz[_mensajero_id]?.numero
+                texto_a_cambiar.text = "\(texto_a_cambiar.text ?? "")\(texto_cache!)"
+            }
         }
-    
+    //----
+    else if estado_actual == estados_de_la_calculadora.mostrar_resultado {
+        
+        if let _mensajero_id = sender.restorationIdentifier{
+            let texto_cache = botones_interfaz[_mensajero_id]?.numero
+            texto_a_cambiar.text = "\(texto_cache!)"
+            estado_actual = estados_de_la_calculadora.seleccionar_numeros
+        }
+    }
+        
     else if (estado_actual == estados_de_la_calculadora.escoger_operacion){
         if let _mensajero_id = sender.restorationIdentifier{
-            operacion_actual = botones_interfaz[_mensajero_id]!.operacion
+            operacion_actual = botones_interfaz[_mensajero_id]?.operacion
+            
+            if let numero_actual: String =  texto_a_cambiar.text{
+                
+                numero_anterior = Double(numero_actual) ?? 0.0
+            }
+            texto_a_cambiar.text = ""
             estado_actual = estados_de_la_calculadora.seleccionar_numeros
         }
         else {
             operacion_actual = nil
         }
-        
+
         
     }
     dibujar_numero_u_operaciones_en_interfaz()
 }
-    
+
     @IBAction func boton_escoger_operacion(_ sender: UIButton){
-      //  boton_operacion.setTitle("Ñ", for: .normal)
+        //  boton_operacion.setTitle("Ñ", for: .normal)
         
         if (estado_actual == estados_de_la_calculadora.seleccionar_numeros){
             estado_actual = estados_de_la_calculadora.escoger_operacion
             dibujar_numero_u_operaciones_en_interfaz()
         }
+        else if (estado_actual ==  estados_de_la_calculadora.escoger_operacion){
+            estado_actual = estados_de_la_calculadora.seleccionar_numeros
+            dibujar_numero_u_operaciones_en_interfaz()
+            }
     }
     
     func inicializar_calculadora() -> Void{
@@ -105,7 +125,30 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
-        
     }
+    
+    @IBAction func obtener_resultado(_ sender: Any) {
+        if numero_anterior != 0.0 && texto_a_cambiar.text != ""{
+            var numero_actual: Double = 0.0
+            if let numero_actual_string = texto_a_cambiar.text{
+                numero_actual = Double (numero_actual_string) ?? 0.0
+            }
+            
+            switch(operacion_actual){
+            case "+":
+                texto_a_cambiar.text = "\(numero_anterior + numero_actual)"
+            case "-":
+                texto_a_cambiar.text = "\(numero_anterior - numero_actual)"
+            case "*":
+                texto_a_cambiar.text = "\(numero_anterior * numero_actual)"
+            case "/":
+                texto_a_cambiar.text = "\(numero_anterior / numero_actual)"
+                
+            default:
+                texto_a_cambiar.text = "Hay un error"
+            }
+            estado_actual = estados_de_la_calculadora.mostrar_resultado
+        }
+    }
+    
 }
